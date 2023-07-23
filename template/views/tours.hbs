@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Explore the holy city of Vrindavan and Mathura with our comprehensive tour packages." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vrindavan-Mathura Tour Packages Tours : Page {{number}}</title>
+  <meta name="keywords" content="vrindavan mathura tour packages, tour, package, vrindavan, mathura, holy city">
+  {{>chead}}
+  <link rel="stylesheet" href="/styles/my.css" />
+</head>
+
+<body class="rlr-body">
+  <!-- Header -->
+  {{>header}}
+  <!-- Main Content -->
+  <main id="rlr-main" class="rlr-main--fixed-top">
+    <div class="rlr-search-results-page container">
+      <div class="rlr-search-results-page__breadcrumb-section">
+        <div class="rlr-icon-text"><i class="rlr-icon-font flaticon-phone-receiver-silhouette"> </i> <span
+            class="rlr-search-results-page__phone">Question? <a style="text-decoration: none;"
+              href="tel:+91 8126008081">8126008081</a> </span></div>
+      </div>
+      <div class="row rlr-search-results-page__product-details">
+        <div class="rlr-search-results-page__product-list col-xl-12">
+          <div class="row rlr-search-results-page__card-wrapper">
+            {{#each tours}}
+            <div class="col-md-6 col-xl-4 col-xxl-3 cnnt">
+              <article class="rlr-product-card rlr-product-card--v3 thin_shadow" itemscope
+                itemtype="https://schema.org/Product" style="margin: 15px 0px;">
+
+                <figure class="rlr-product-card__image-wrapper">
+                  <a href="/tours/details/{{this.url}}">
+                    <div class="swiper rlr-js-product-multi-image-swiper">
+                      <div class="swiper-wrapper" style="height: 171px;">
+                        {{#with this}}
+                        {{#each this._doc.images}}
+                        <div class="swiper-slide">
+                          <img itemprop="image" data-sizes="auto" src="/assets/tours/{{../this._doc.id}}/{{this.url}}"
+                            class="lazyload" alt="product-image" />
+                        </div>
+                        {{/each}}
+                        {{/with}}
+                      </div>
+                      <button type="button" class="btn rlr-button splide__arrow splide__arrow--prev"
+                        aria-label="prev button">
+                        <i class="rlr-icon-font flaticon-left-chevron"> </i>
+                      </button>
+                      <button type="button" class="btn rlr-button splide__arrow splide__arrow--next"
+                        aria-label="next button">
+                        <i class="rlr-icon-font flaticon-chevron"> </i>
+                      </button>
+                    </div>
+                  </a>
+                </figure>
+                <div class="rlr-product-card__detail-wrapper rlr-js-detail-wrapper">
+                  <!-- Product card header -->
+                  <header class="rlr-product-card__header">
+                    <div>
+                      <a href="/tours/details/{{this.url}}" class="rlr-product-card__anchor-title">
+                        <h2 class="rlr-product-card__title" itemprop="name">{{this._doc.title}}</h2>
+                      </a>
+                      <div>
+                        <a href="/tours/details/{{this.url}}" class="rlr-product-card__anchor-cat">
+                          <span class="rlr-product-card__sub-title">{{this._doc.type}}</span>
+                        </a>
+                      </div>
+                    </div>
+                  </header>
+                  <!-- Product card footer -->
+                  <div class="rlr-product-card__footer">
+                    <div class="rlr-icon-text rlr-product-card__icon-text"><i
+                        class="rlr-icon-font flaticon-three-o-clock-clock"> </i> <span class="">{{this._doc.duration}}
+                        Day </span></div>
+                    <ul class="rlr-product-card__icon-text-list">
+                      <li class="rlr-icon-text rlr-product-card__icon-text"><i class="rlr-icon-font flaticon-check">
+                        </i> <span class="rlr-icon-text__title">1-56 member group </span></li>
+                      <li class="rlr-icon-text rlr-product-card__icon-text"><i class="rlr-icon-font flaticon-check">
+                        </i> <span class="rlr-icon-text__title">Free Cancellation* </span></li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </div>
+            {{/each}}
+          </div>
+          <hr class="rlr-search-results-page__divider" />
+          <nav class="rlr-pagination" aria-label="Product list navigation">
+            <ul class="pagination rlr-pagination__list">
+              <li class="page-item rlr-pagination__page-item disabled ovrly" id="prev_pg">
+                <a class="page-link rlr-pagination__page-link rlr-pagination__page-link--prev" href="#"
+                  aria-label="Previous">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.833 10H4.167m0 0L10 15.833M4.167 10 10 4.167" stroke="var(--body-color)"
+                      stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>Previous Page
+                </a>
+              </li>
+              <li class="page-item rlr-pagination__page-item ovrly" id="next_pg">
+                <a class="page-link rlr-pagination__page-link rlr-pagination__page-link--next" href="#"
+                  aria-label="Next">
+                  Next Page
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.167 10h11.666m0 0L10 4.167M15.833 10 10 15.833" stroke="var(--body-color)"
+                      stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer -->
+  {{>footer}}
+  <!-- Scripts -->
+  <script src="/vendors/navx/js/navigation.min.js" defer></script>
+  <script src="/js/main.js" defer></script>
+  <script src="/js/scripts/tour.js"></script>
+</body>
+
+</html>

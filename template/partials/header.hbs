@@ -1,0 +1,110 @@
+<header>
+  <nav id="navigation" class="navigation rlr-navigation default-nav fixed-top">
+    <!-- Logo -->
+    <div class="navigation-header">
+      <div class="navigation-brand-text">
+        <div class="rlr-logo rlr-logo__navbar-brand rlr-logo--default">
+          <a href="/">
+            <img
+              src="/assets/logo.png"
+              alt="#"
+              class=""
+              style="height: 50px; width:150px"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="navigation-button-toggler" id="toggle">
+        <span class="rlr-sVGIcon">
+          <i class="rlr-icon-font rlr-icon-font--megamenu flaticon-menu"> </i>
+        </span>
+      </div>
+    </div>
+    <div class="navigation-body rlr-navigation__body container">
+      <div class="navigation-body-header rlr-navigation__body-header">
+        <div class="navigation-brand-text">
+          <div class="rlr-logo rlr-logo__navbar-brand rlr-logo--default">
+            <a href="/">
+              <img
+                src="/assets/logo.png"
+                alt="#"
+                class=""
+                style="height: 50px; width:150px"
+              />
+            </a>
+          </div>
+        </div>
+        <span class="rlr-sVGIcon navigation-body-close-button" id="closebtn">
+          <i class="rlr-icon-font rlr-icon-font--megamenu flaticon-close"> </i>
+        </span>
+      </div>
+
+      <!-- Main menu -->
+      <ul
+        class="navigation-menu rlr-navigation__menu rlr-navigation__menu--main-links"
+      >
+        <!-- Dropdown menu 1 -->
+        <li class="navigation-item">
+          <a class="navigation-link" href="/">Home</a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link" href="/tours">Tours</a>
+        </li>
+        <li class="navigation-item">
+          <a class="navigation-link" href="/contact"> Contact </a>
+        </li>
+      </ul>
+      <ul class="navigation-menu rlr-navigation__menu align-to-right">
+        {{#if listing}}
+          <li class="d-lg-none d-xxl-block navigation-item">
+            <a
+              class="navigation-link rlr-navigation__link--so"
+              href="/addproduct"
+            >Add your listing</a>
+          </li>
+        {{/if}}
+        <!-- User account dropdown -->
+        {{#if login}}
+          <li class="navigation-item">
+            <a class="navigation-link" href="#">
+              {{name}}
+              <img
+                class="ui right spaced avatar image"
+                src="/assets/images/default.png"
+                alt="account avatar"
+              />
+            </a>
+            <ul class="navigation-dropdown">
+              <li class="navigation-dropdown-item">
+                <a
+                  class="navigation-dropdown-link"
+                  href="/dashboard"
+                >Dashboard</a>
+              </li>
+              <li class="navigation-dropdown-item">
+                <a class="navigation-dropdown-link" href="/orders">Your Orders</a>
+              </li>
+              <li class="navigation-dropdown-item">
+                <hr class="dropdown-divider rlr-dropdown__divider" />
+              </li>
+              <li class="navigation-dropdown-item">
+                <a class="navigation-dropdown-link" href="#" id="logoutt">Sign
+                  out</a>
+              </li>
+            </ul>
+          </li>
+        {{/if}}
+        {{#if logind}}
+          <a class="navigation-link" href="/{{name}}">
+            {{name}}
+            <img
+              class="ui right spaced avatar image"
+              src="/assets/images/default.png"
+              alt="account avatar"
+            />
+          </a>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Submit your inquiry for the {{tour.title}} and get a free quote." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inquiry | {{tour.title}}</title>
+  <meta name="robots" content="noindex">
+  <meta name="keywords" content="{{tour.title}} ,vrindavan mathura tour package, inquiry form, quote, free, tour, package">
+  {{>chead}}
+</head>
+
+<body class="rlr-body">
+  <!-- Header -->
+  {{>header}}
+  <!-- Main Content -->
+  <main id="rlr-main" class="rlr-main--fixed-top">
+    <div class="rlr-section__content--md-top">
+      <div class="rlr-section rlr-section__my">
+        <div class="rlr-checkout">
+          <article id="post-7" class="post-7 page type-page status-publish hentry">
+            <div class="container-xxl">
+              <div class="entry-content">
+                <div class="woocommerce">
+                  <div class="woocommerce-info">
+                    <div class="rlr-page-title">
+                      <span class="rlr-page-title__icon"> <i class="rlr-icon-font flaticon-carbon-shopping-cart"> </i>
+                      </span>
+                      <div>
+                        <h2 class="type-h3 rlr-page-title__title">Inquiry</h2>
+                        <span class="rlr-page-title__desc">One more step left for your trip...</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="woocommerce-notices-wrapper"></div>
+                  <form id="inqu_form" name="checkout" class="checkout woocommerce-checkout" enctype="multipart/form-data"
+                    novalidate="novalidate">
+                    <div class="col2-set" id="customer_details">
+                      <div class="col-1">
+                        <div class="woocommerce-billing-fields">
+                          <div class="woocommerce-billing-fields__field-wrapper">
+                            <h6 class="checkout__section-title">
+                              <span> Personal Information </span>
+                            </h6>
+                            <div class="checkout__personal-details">
+                              <p class="form-row form-row-first validate-required" id="billing_first_name_field"
+                                data-priority="10">
+                                <label for="billing_first_name" class=""> Name </label>
+                                <span class="woocommerce-input-wrapper">
+                                  <input type="text" class="input-text" name="billing_first_name"
+                                    id="billing_first_name" placeholder="John" value="{{namee}}" {{#if
+                                    namee}}readonly{{/if}} autocomplete="given-name" />
+                                </span>
+                              </p>
+                              <p class="form-row form-row-wide validate-required validate-phone"
+                                id="billing_phone_field" data-priority="100">
+                                <label for="billing_phone" class=""> Phone </label>
+                                <span class="woocommerce-input-wrapper">
+                                  <input type="tel" class="input-text" name="billing_phone" id="billing_phone"
+                                    placeholder="XXXXXXXXXX" value="{{phone}}" autocomplete="tel" {{#if
+                                    phone}}readonly{{/if}} />
+                                </span>
+                              </p>
+                              <p class="form-row form-row-wide validate-required validate-email"
+                                id="billing_email_field" data-priority="110">
+                                <label for="billing_email" class=""> Email </label>
+                                <span class="woocommerce-input-wrapper">
+                                  <input type="email" class="input-text" name="billing_email" id="billing_email"
+                                    placeholder="jd@emprise.tours" value="{{email}}" {{#if email}}readonly{{/if}} autocomplete="email" />
+                                </span>
+                              </p>
+                              <p class="form-row form-row-wide" id="billing_company_field" data-priority="30">
+                                <label for="billing_gst" class="">
+                                  GST
+                                  <span class="optional"> (optional) </span>
+                                </label>
+                                <span class="woocommerce-input-wrapper">
+                                  <input type="text" class="input-text" name="billing_gst" id="billing_gst"
+                                    placeholder="XXXXXXXXXX" value="" autocomplete="organization" />
+                                </span>
+                              </p>
+                              <p class="form-row address-field street-address-1 validate-required form-row-wide"
+                                id="billing_address_1_field" data-priority="50">
+                                <label for="order_comments" class="">
+                                  Order notes
+                                  <span class="optional"> (optional) </span>
+                                </label>
+                                <span class="woocommerce-input-wrapper">
+                                  <textarea name="order_comments" class="input-text" id="order_comments"
+                                    placeholder="Notes about your order, e.g. special notes and instruction." rows="8"
+                                    cols="5"></textarea>
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="order_review" class="woocommerce-checkout-review-order">
+                      <table class="shop_table woocommerce-checkout-review-order-table">
+                        <tbody>
+                          <tr class="cart_item">
+                            <td class="product-name">
+                              <h6 class="cart-item-title">Your Order</h6>
+                              <ul class="cart-item-card" id="append_dta">
+                                <li class="cart-item-card__header">
+                                  <div>
+                                    <img class="cart-item-card__img" src="/assets/tours/{{tour.id}}/{{tour.image}}"
+                                      alt="..." />
+                                  </div>
+                                  <div>
+                                    <p class="cart-item-card__title">{{tour.title}}</p>
+                                    <p class="cart-item-card__date">
+                                      <span> Arriving Between </span>
+                                    </p>
+                                    <p class="cart-item-card__date">
+                                      <span id="arriving"> 21/04/22 </span>
+                                    </p>
+                                  </div>
+                                </li> 
+                              </ul>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                            <td>
+                              <button type="submit" class="button alt" name="woocommerce_checkout_place_order"
+                                id="place_order" value="Place order" data-value="Place order">Submit Inquiry</button>
+                            </td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- .entry-content -->
+            </div>
+          </article>
+          <!-- #post-7 -->
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer -->
+  {{>footer}}
+  <!-- Scripts -->
+  <script src="/vendors/navx/js/navigation.min.js" defer></script>
+  <script src="/js/main.js" defer></script>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+  <script src="/js/scripts/inquiry.js"></script>
+
+</body>
+
+</html>

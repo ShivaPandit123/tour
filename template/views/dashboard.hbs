@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Manage your Vrindavan-Mathura Tour Package account and view your orders, payments, and more on the dashboard." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{namee}} | Dashboard</title>
+    <meta name="robots" content="noindex">
+    <meta name="keywords" content="vrindavan mathura tour package, dashboard, account, orders, payments, view">
+    <!-- Favicon -->
+    {{>chead}}
+  </head>
+
+  <body class="rlr-body">
+    <!-- Header -->
+    {{>header}}
+    <!-- Main Content -->
+    <main id="rlr-main" class="rlr-main--fixed-top">
+      <div class="rlr-section__content--md-top">
+        <div class="rlr-section rlr-section__my">
+          {{>ms}}
+          <div class="container">
+            <div class="row">
+              {{>aside}}
+              <div class="content col-lg-9 col-xs-12">
+                <div class="woocommerce-MyAccount-content">
+                  <h1 class="type-h3 rlr-data-table__title">Your Account</h1>
+                  <div class="rlr-myaccount__wrapper">
+                    <div class="woocommerce-MyAccount-content">
+                      <p>Hello <strong>{{namee}}</strong> (not <strong>{{namee}}</strong>? <a href="#" id="logot1">Logout</a>)</p>
+                      <p>
+                        From your account dashboard you can view your <a href="/orders">recent orders</a> and
+                        <a href="https://ui.emprise.tours/">edit your password and account details</a>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    {{>footer}}
+    <!-- Scripts -->
+    <script src="/vendors/navx/js/navigation.min.js" defer></script>
+    <script src="/js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="View and manage your orders on the Vrindavan-Mathura Tour Package order page." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="vrindavan mathura tour package, order page, order, view, manage, orders">
+  <title>Order Page | Vrindavan Mathura Tour Package</title>
+  <meta name="keywords" content="vrindavan mathura tour package, signup, tour, package, travel, tourism">
+  {{>chead}}
+</head>
+
+<body class="rlr-body">
+  <!-- Header -->
+  {{>header}}
+  <!-- Main Content -->
+  <main id="rlr-main" class="rlr-main--fixed-top">
+    <div class="rlr-section__content--lg-top">
+      <section class="rlr-section rlr-section__mt rlr-account">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 offset-lg-4">
+              <div class="rlr-authforms">
+                <div class="rlr-authforms__header">
+                  <img class="mb-2" src="/assets/favicon.png" alt="Logo" />
+                  <h2>Create an account</h2>
+                  <p>Helps to access all features of the site.</p>
+                </div>
+                <div class="rlr-authforms__form">
+                  <div class="rlr-authforms__inputgroup"><label class="rlr-form-label rlr-form-label--light required">
+                      Name </label> <input type="text" autocomplete="off" class="form-control form-control--light"
+                      id="name" /></div>
+                  <div class="rlr-authforms__inputgroup"><label class="rlr-form-label rlr-form-label--light required">
+                      Email </label> <input type="text" autocomplete="off" class="form-control form-control--light"
+                      id="email" /></div>
+                  <div class="rlr-authforms__inputgroup"><label class="rlr-form-label rlr-form-label--light required">
+                      Phone </label> <input type="text" autocomplete="off" class="form-control form-control--light"
+                      id="phone" /></div>
+                  <div class="rlr-authforms__inputgroup">
+                    <label class="rlr-form-label rlr-form-label--light required"> Password </label> <input
+                      type="password" autocomplete="off" class="form-control form-control--light" id="password" />
+                    <p class="help-text">Must be 8 characters or more.</p>
+                  </div>
+                  <div class="rlr-authforms__inputgroup">
+                    <label class="rlr-form-label rlr-form-label--light required"> Confirm Password </label> <input
+                      type="password" autocomplete="off" class="form-control form-control--light" id="cpassword" />
+                    <p class="help-text">Both password must be identical.</p>
+                  </div>
+                  <button type="button" class="btn rlr-button rlr-button--fullwidth rlr-button--primary"
+                    id="submit">Sign up</button>
+                  <button type="button" class="btn rlr-button rlr-button--fullwidth rlr-button--google"
+                    id="ggl_sgp">Sign up with Google</button>
+                </div>
+                <div class="rlr-authforms__notes">
+                  <p>Already have an account? <a href="/login">Log in</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <!-- Footer -->
+  {{>footer}}
+  <!-- Scripts -->
+  <script src="/js/scripts/signup.js"></script>
+  <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+  <script src="/vendors/navx/js/navigation.min.js" defer></script>
+  <script src="/js/main.js" defer></script>
+</body>
+
+</html>

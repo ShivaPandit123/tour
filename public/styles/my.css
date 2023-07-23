@@ -1,0 +1,64 @@
+.ovrly {
+  position: relative;
+}
+
+.ovrly::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.rlr-banner-input-group__input {
+  height: 48px !important;
+  padding: 0px 16px;
+}
+::placeholder {
+  text-decoration: none !important; /* For most modern browsers */
+}
+@media screen and (max-width: 617px) {
+  .flatpickr-calendar {
+    width: 100% !important;
+  }
+  .flatpickr-innerContainer {
+    width: 100% !important;
+  }
+  .flatpickr-rContainer {
+    width: 100% !important;
+  }
+  .dayContainer {
+    width: 100%;
+    max-width: 100%;
+  }
+  .flatpickr-days {
+    width: 100% !important;
+  }
+  .flatpickr-month:nth-child(3) {
+    display: none !important;
+  }
+  .flatpickr-weekdaycontainer:nth-child(2) {
+    display: none;
+  }
+  .dayContainer:nth-child(1) {
+    width: 95%;
+  }
+  .dayContainer:nth-child(2) {
+    display: none;
+  }
+}
+.mobile_view {
+  display: none;
+}
+.thin_shadow {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+@media screen and (max-width: 767px) {
+  .pc_view {
+    display: none;
+  }
+  .mobile_view {
+    display: flex;
+    flex-direction: column;
+  }
+}

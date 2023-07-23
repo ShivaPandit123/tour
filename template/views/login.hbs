@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Login to your Vrindavan-Mathura Tour Package account and start planning your trip to the holy city of Vrindavan and Mathura." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login to Vrindavan-Mathura Tour Package and Start Planning Your Trip</title>
+    <meta name="keywords" content="vrindavan mathura tour package, login, account, trip planning, travel, tourism">
+    {{>chead}}
+  </head>
+
+  <body class="rlr-body">
+    <!-- Header -->
+    {{>header}}
+    <!-- Main Content -->
+    <main id="rlr-main" class="rlr-main--fixed-top">
+      <div class="rlr-section__content--lg-top">
+        <section class="rlr-section rlr-section__mt rlr-account">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4 offset-lg-4">
+                <form class="rlr-authforms">
+                  <div class="rlr-authforms__header">
+                    <img src="/assets/favicon.png" alt="Logo" />
+                    <h2>Log in to your emprise</h2>
+                    <p>Welcome back! Please enter login details.</p>
+                  </div>
+                  <div class="rlr-authforms__form">
+                    <div class="rlr-authforms__inputgroup"><label class="rlr-form-label rlr-form-label--light required"> Email </label> <input type="text" autocomplete="off" class="form-control form-control--light" id="email"/></div>
+                    <div class="rlr-authforms__inputgroup"><label class="rlr-form-label rlr-form-label--light required"> Password </label> <input type="password" autocomplete="off" class="form-control form-control--light" id="password"/></div>
+                    <div class="rlr-authforms__forgotpassword">
+                      <div class="form-check-inline">
+                        <input class="form-check-input rlr-form-check-input" id="rlr-checkbox-1" type="checkbox" value="defaultValue" />
+                        <label class="rlr-form-label rlr-form-label--checkbox rlr-form-label--font-inherit rlr-form-label--bold" for="rlr-checkbox-1">Remember me on this device</label>
+                      </div>
+                      <a href="account-pages--forgot-password">Forgot password</a>
+                    </div>
+                    <button type="button" class="btn mb-3 rlr-button rlr-button--fullwidth rlr-button--primary" id="submit">Sign in</button>
+                    <button type="button" class="btn mb-3 rlr-button rlr-button--fullwidth rlr-button--google" id="ggl_lng">Sign in with Google</button>
+                  </div>
+                  <div class="rlr-authforms__notes">
+                    <p>Don’t have an account? <a href="/signup">Sign up</a></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- Footer -->
+   {{>footer}}
+    <!-- Scripts -->
+    <script src="/js/scripts/login.js"></script>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="/vendors/navx/js/navigation.min.js" defer></script>
+    <script src="/js/main.js" defer></script>
+  </body>
+</html>
