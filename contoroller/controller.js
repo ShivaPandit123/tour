@@ -323,7 +323,7 @@ exports.admin_addtour = async (req, res) => {
         throw new Error(
           JSON.stringify({ status: 400, message: "please enter the title" })
         );
-      } else if (typeof title != "string" || title.length > 35) {
+      } else if (typeof title != "string") {
         throw new Error(
           JSON.stringify({ status: 400, message: "please enter a valid title" })
         );
@@ -355,18 +355,6 @@ exports.admin_addtour = async (req, res) => {
           JSON.stringify({
             status: 400,
             message: "please provide a valid meta heading and description",
-          })
-        );
-      } else if (
-        meta.heading.length > 75 ||
-        meta.description.length > 180 ||
-        meta.keyword.length > 280
-      ) {
-        throw new Error(
-          JSON.stringify({
-            status: 400,
-            message:
-              "meta gheading, description and keyword length should be 75, 180 and 280 ",
           })
         );
       } else if (typeof type !== "string") {
@@ -412,14 +400,14 @@ exports.admin_addtour = async (req, res) => {
         throw new Error(
           JSON.stringify({
             status: 400,
-            message: "please provide atleast 5 images",
+            message: "please provide atleast 3 images",
           })
         );
-      } else if (typeof image !== "object" || image.length < 5) {
+      } else if (typeof image !== "object" || image.length < 3) {
         throw new Error(
           JSON.stringify({
             status: 400,
-            message: "please provide atleast 5 images",
+            message: "please provide atleast 3 images",
           })
         );
       } else if (!itinerary) {

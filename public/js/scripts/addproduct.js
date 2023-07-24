@@ -88,8 +88,8 @@ const apd = async () => {
     return alert("Please enter the duration of the tour");
   } else if (!data.startp) {
     return alert("Please enter the strat point");
-  } else if (data.image.length < 5) {
-    return alert("Please select atleast 5 images");
+  } else if (data.image.length < 3) {
+    return alert("Please select atleast 3 images");
   } else if (data.itinerary.length != data.duration) {
     return alert("Please select itinerary for selected duration");
   } else if (data.faq.length < 1) {
@@ -104,7 +104,9 @@ const apd = async () => {
   });
   const dat = await response.json();
   alert(dat.message);
-  window.location.replace("/tours");
+  if (dat.result) {
+    window.location.replace("/tours");
+  }
 };
 const ap = document.getElementById("ap");
 ap.addEventListener("click", apd);
