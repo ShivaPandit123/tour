@@ -31,6 +31,10 @@ const tour = new mongoose.Schema({
       type: String,
       required: true,
     },
+    keyword: {
+      type: String,
+      required: true,
+    },
   },
   images: [
     {

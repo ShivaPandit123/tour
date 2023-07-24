@@ -348,7 +348,8 @@ exports.admin_addtour = async (req, res) => {
         );
       } else if (
         typeof meta.heading !== "string" ||
-        typeof meta.description !== "string"
+        typeof meta.description !== "string" ||
+        typeof meta.keyword !== "string"
       ) {
         throw new Error(
           JSON.stringify({
@@ -356,12 +357,16 @@ exports.admin_addtour = async (req, res) => {
             message: "please provide a valid meta heading and description",
           })
         );
-      } else if (meta.heading.length > 75 || meta.description > 180) {
+      } else if (
+        meta.heading.length > 75 ||
+        meta.description.length > 180 ||
+        meta.keyword.length > 280
+      ) {
         throw new Error(
           JSON.stringify({
             status: 400,
             message:
-              "meta gheading and description length should be 75 and 180",
+              "meta gheading, description and keyword length should be 75, 180 and 280 ",
           })
         );
       } else if (typeof type !== "string") {

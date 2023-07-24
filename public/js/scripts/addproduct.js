@@ -10,6 +10,8 @@ const getdata = () => {
       description: document.getElementById(
         "rlr-product-form-product-description"
       ).value,
+      keyword: document.getElementById("rlr-product-form-product-keyword")
+        .value,
     },
     type: document.getElementById("rlr-product-form-product-theme").value,
     startp: document.getElementById("rlr-product-form-start-point").value,
@@ -74,7 +76,11 @@ const apd = async () => {
     return alert("Please enter the title of tour");
   } else if (!data.description) {
     return alert("please enter the description of tour");
-  } else if (!data.meta.heading || !data.meta.description) {
+  } else if (
+    !data.meta.heading ||
+    !data.meta.description ||
+    !data.meta.keyword
+  ) {
     return alert("please enter meta data");
   } else if (!data.type) {
     return alert("Please enter type of tour");
