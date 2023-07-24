@@ -98,7 +98,7 @@ routers.get("/login", verify, (req, res) => {
     return;
   }
   res.render("login", {
-    name: "Signup",
+    name: "signup",
     logind: true,
     login: false,
   });
@@ -110,7 +110,7 @@ routers.get("/signup", verify, (req, res) => {
     return;
   }
   res.render("signup", {
-    name: "Login",
+    name: "login",
     logind: true,
     login: false,
   });
