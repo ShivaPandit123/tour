@@ -280,14 +280,14 @@
               <div class="accordion rlr-accordion">
                 {{#each tour.faq}}
                 <div class="accordion-item rlr-accordion__item">
-                  <div class="accordion-header rlr-accordion__header" id="rlr-faq-collapse-header1">
+                  <div class="accordion-header rlr-accordion__header" id="rlr-faq-collapse-header{{this.id}}">
                     <button class="accordion-button rlr-accordion__button" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#rlr-faq-collapse1" aria-expanded="true" aria-controls="rlr-faq-collapse1">
+                      data-bs-target="#rlr-faq-collapse{{this.id}}" aria-expanded="true" aria-controls="rlr-faq-collapse1">
                       <span class="rlr-accordion__badge">?</span> {{this.title}}
                     </button>
                   </div>
-                  <div id="rlr-faq-collapse1" class="accordion-collapse collapse show"
-                    aria-labelledby="rlr-faq-collapse-header1">
+                  <div id="rlr-faq-collapse{{this.id}}" class="accordion-collapse collapse show"
+                    aria-labelledby="rlr-faq-collapse-header{{this.id}}">
                     <div class="accordion-body rlr-accordion__body">
                       <div class="rlr-readmore-desc">
                         <p class="rlr-readmore-desc__content rlr-js-desc">
