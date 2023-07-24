@@ -1,4 +1,13 @@
 const data = JSON.parse(sessionStorage.getItem("data"));
+if (!data) {
+  alert("please select all the fields");
+  window.history.back();
+} else if (!data.date || !data.member || !data.traveller || !data.tour) {
+  alert("please select all the fields");
+  window.history.back();
+} else {
+  console.log(data);
+}
 document.getElementById("arriving").innerText = data.date;
 let addon = data.addon.split(",");
 let html = `<ul class="cart-item-card">

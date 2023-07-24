@@ -263,7 +263,7 @@ routers.get("/tours/:any", verify, async (req, res) => {
       let data = istour.map((itm) => {
         return {
           ...itm,
-          url: itm.title.replace(" ", "-"),
+          url: itm.title.split(" ").join("-"),
         };
       });
       istour = data;
@@ -330,7 +330,7 @@ routers.get("/tours", verify, async (req, res) => {
     let data = istour.map((itm) => {
       return {
         ...itm,
-        url: itm.title.replace(" ", "-"),
+        url: itm.title.split(" ").join("-"),
       };
     });
     istour = data;
@@ -374,7 +374,7 @@ routers.get("/tours", verify, async (req, res) => {
 
 routers.get("/tours/details/:any", verify, async (req, res) => {
   try {
-    const titl = req.params.any.replace("-", " ");
+    const titl = req.params.any.split("-").join(" ");
     let regex = new RegExp(["^", titl, "$"].join(""), "i");
     let istour = await tours
       .findOne({ title: regex })
@@ -444,7 +444,7 @@ routers.get("/tours/details/:any", verify, async (req, res) => {
 
 routers.get("/tours/details/:any/inquiry", verify, async (req, res) => {
   try {
-    const titl = req.params.any.replace("-", " ");
+    const titl = req.params.any.split("-").join(" ");
     let regex = new RegExp(["^", titl, "$"].join(""), "i");
     let istour = await tours
       .findOne({ title: regex })

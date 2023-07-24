@@ -969,7 +969,7 @@ exports.client_inquiry = async (req, res) => {
       member,
       tour: {
         name: istour.title,
-        url: istour.title.replace(" ", "-"),
+        url: istour.title.split(" ").join("-"),
       },
       traveller,
     });
