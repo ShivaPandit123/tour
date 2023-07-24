@@ -106,17 +106,6 @@
                 </ol>
               </nav>
               <h1 class="rlr-section__heading--main rlr-product-detail-header__title" id="tr_title">{{tour.title}}</h1>
-              <div class="rlr-review-stars" itemscope itemtype="https://schema.org/Product">
-                <div class="rlr-review-stars" itemprop="ratingValue" itemscope itemtype="https://schema.org/Product">
-                  <i class="rlr-icon-font flaticon-star-1"> </i> <i class="rlr-icon-font flaticon-star-1"> </i> <i
-                    class="rlr-icon-font flaticon-star-1"> </i> <i class="rlr-icon-font flaticon-star-1"> </i> <i
-                    class="rlr-icon-font flaticon-star"> </i>
-                </div>
-                <div class="rlr-review-stars__content">
-                  <span class="rlr-review-stars__count">6,788</span>
-                  <span> Reviews</span>
-                </div>
-              </div>
             </div>
           </div>
           <!-- Secondary Menu -->
@@ -169,11 +158,12 @@
                     </div>
                   </div>
                   <div class="rlr-overview-detail__icon-group">
-                      <span class="rlr-overview-detail__label">Physical</span>
-                      <div class="rlr-overview-detail__icons">
-                        <figure class="rlr-icon-text"><i class="rlr-icon-font flaticon-icecream-cone"> </i> <span class="">Normal </span></figure>
-                      </div>
+                    <span class="rlr-overview-detail__label">Physical</span>
+                    <div class="rlr-overview-detail__icons">
+                      <figure class="rlr-icon-text"><i class="rlr-icon-font flaticon-icecream-cone"> </i> <span
+                          class="">Normal </span></figure>
                     </div>
+                  </div>
                   <div class="rlr-overview-detail__icon-group">
                     <span class="rlr-overview-detail__label">Group Size</span>
                     <div class="rlr-overview-detail__icons">
@@ -212,9 +202,9 @@
                 {{#each iti}}
                 <div class="accordion-item rlr-accordion__item">
                   <div class="accordion-header rlr-accordion__header" id="rlr-itinerary-header{{this.count}}">
-                    <button class="accordion-button rlr-accordion__button" type="button"
-                      data-bs-toggle="collapse" data-bs-target="#rlr-itinerary-collapse{{this.count}}"
-                      aria-expanded="true" aria-controls="rlr-itinerary-collapse{{this.count}}">
+                    <button class="accordion-button rlr-accordion__button" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#rlr-itinerary-collapse{{this.count}}" aria-expanded="true"
+                      aria-controls="rlr-itinerary-collapse{{this.count}}">
                       <span class="rlr-accordion__badge">{{this.count}}</span> Day {{this.count}}
                     </button>
                   </div>
@@ -324,8 +314,7 @@
                 <div class="rlr-banner-input-group__input-wrapper">
                   <input id="rlr-banner-input-group-dates" type="text" autocomplete="off"
                     class="rlr-banner-input-group__input eee_home_search_flatpickr form-input"
-                    style="text-decoration: none;"
-                    placeholder="e.g. 2023-07-23 to 2023-08-10" />
+                    style="text-decoration: none;" placeholder="e.g. 2023-07-23 to 2023-08-10" />
                   <i class="rlr-icon-font flaticon-calendar"> </i>
                   <ul id="home_date_results" class="rlr-banner-input-group--date-dropdown rlr-autocomplete"></ul>
                 </div>
