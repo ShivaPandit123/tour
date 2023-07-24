@@ -51,7 +51,7 @@ routers.get("/", verify, async (req, res) => {
     let data = istour.map((itm) => {
       return {
         ...itm,
-        url: itm.title.replace(" ", "-"),
+        url: itm.title.split(" ").join("-"),
       };
     });
     istour = data;
