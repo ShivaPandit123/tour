@@ -143,11 +143,12 @@
             <div class="rlr-secondary-menu-desc__details">
               <h3 style="margin-top: 30px;" class="rlr-itinerary__title">Overview</h3>
               <div class="rlr-overview-detail">
-                <div class="rlr-readmore-desc rlr-overview-detail__description">
-                  <p class="rlr-readmore-desc__content rlr-js-desc">
+                {{!-- <div class="rlr-readmore-desc rlr-overview-detail__description"> --}}
+                    <div>
+                          <p class=" rlr-js-desc">
                     {{tour.description}}
                   </p>
-                  <span class="rlr-readmore-desc__readmore rlr-js-readmore">Show more...</span>
+                  <span style="display: none;" class="rlr-readmore-desc__readmore rlr-js-readmore">Show more...</span>
                 </div>
                 <div class="rlr-overview-detail__icon-groupset">
                   <div class="rlr-overview-detail__icon-group">
@@ -211,11 +212,11 @@
                   <div id="rlr-itinerary-collapse{{this.count}}" class="accordion-collapse collapse show"
                     aria-labelledby="rlr-itinerary-header{{this.count}}">
                     <div class="accordion-body rlr-accordion__body">
-                      <div class="rlr-readmore-desc">
-                        <p class="rlr-readmore-desc__content rlr-js-desc">
+                       <div>
+                          <p class=" rlr-js-desc">
                           {{this.description}}
                         </p>
-                        <span class="rlr-readmore-desc__readmore rlr-js-readmore">Show more...</span>
+                        <span style="display: none;" class="rlr-readmore-desc__readmore rlr-js-readmore">Show more...</span>
                       </div>
                     </div>
                   </div>
@@ -289,11 +290,11 @@
                   <div id="rlr-faq-collapse{{this.id}}" class="accordion-collapse collapse show"
                     aria-labelledby="rlr-faq-collapse-header{{this.id}}">
                     <div class="accordion-body rlr-accordion__body">
-                      <div class="rlr-readmore-desc">
-                        <p class="rlr-readmore-desc__content rlr-js-desc">
+                       <div>
+                          <p class=" rlr-js-desc">
                           {{this.description}}
                         </p>
-                        <span class="rlr-readmore-desc__readmore rlr-js-readmore">Show more...</span>
+                        <span style="display: none;" class="rlr-readmore-desc__readmore rlr-js-readmore">Show more...</span>
                       </div>
                     </div>
                   </div>
