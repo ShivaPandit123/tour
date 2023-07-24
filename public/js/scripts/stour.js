@@ -12,7 +12,7 @@ const save = () => {
   };
   sessionStorage.setItem("data", JSON.stringify(data));
   window.location.replace(
-    `/tours/details/${data.tour.replace(" ", "-")}/inquiry`
+    `/tours/details/${data.tour.split(" ").join("-")}/inquiry`
   );
 };
 document.getElementById("pcd_bkng").addEventListener("click", save);
