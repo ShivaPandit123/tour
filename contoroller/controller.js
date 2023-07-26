@@ -10,6 +10,8 @@ const path = require("path");
 const axios = require("axios");
 const querystring = require("querystring");
 const Booking = require("../models/booking");
+const { send_otp } = require("./email");
+const Otp = require("../models/otp");
 exports.register_user = async (req, res) => {
   try {
     const { email, phone, password, cpassword, name } = req.body;
@@ -67,9 +69,7 @@ exports.register_user = async (req, res) => {
     const result = await client
       .save()
       .then(() => {
-        return res
-          .status(201)
-          .json({ result: true, message: "Account created" });
+        return res;
       })
       .catch((err) => {
         throw new Error(
@@ -79,6 +79,23 @@ exports.register_user = async (req, res) => {
           })
         );
       });
+    const token = await client
+      .genrateAuthToken()
+      .then((res) => {
+        return res;
+      })
+      .catch((error) => {
+        throw new Error(
+          JSON.stringify({ status: 400, message: "Some error occured" })
+        );
+      });
+    return res
+      .status(200)
+      .cookie("ltk", token, {
+        expires: new Date(Date.now() + 432000000),
+        httpOnly: true,
+      })
+      .json({ result: true, message: "Account Created" });
   } catch (error) {
     const err = JSON.parse(error.message);
     return res.status(err.status).json({
@@ -703,6 +720,21 @@ exports.client_oauth = async (req, res) => {
         );
       });
     if (isuser) {
+      if (!isuser.isverified) {
+        const update = await users
+          .updateOne(
+            { email: regex },
+            {
+              isverified: true,
+              verification: {
+                email: true,
+              },
+              password: generateStrongPassword(9),
+            }
+          )
+          .then((res) => res)
+          .catch((err) => {});
+      }
       const token = await isuser
         .genrateAuthToken()
         .then((res) => {
@@ -989,6 +1021,133 @@ exports.client_inquiry = async (req, res) => {
           })
         );
       });
+  } catch (error) {
+    const err = JSON.parse(error.message);
+    return res.status(err.status).json({
+      result: false,
+      message: err.message,
+    });
+  }
+};
+
+exports.client_veremail = async (req, res) => {
+  try {
+    const { email, name } = req.user;
+    if (!validator.isEmail(email)) {
+      throw new Error(
+        JSON.stringify({ status: 400, message: "Invalid email" })
+      );
+    } else if (typeof name !== "string") {
+      throw new Error(JSON.stringify({ status: 400, message: "Invalid name" }));
+    }
+    let result = await send_otp({ email, name }, "verify");
+    if (result.result) {
+      res.status(200).json({ result: true, message: "Resend is successfull" });
+    } else {
+      res
+        .status(result.status)
+        .json({ result: result.result, message: result.message });
+    }
+  } catch (error) {
+    const err = JSON.parse(error.message);
+    return res.status(err.status).json({
+      result: false,
+      message: err.message,
+    });
+  }
+};
+
+exports.client_resetotp = async (req, res) => {
+  try {
+    const { email, name } = req.body;
+    if (!validator.isEmail(email)) {
+      throw new Error(
+        JSON.stringify({ status: 400, message: "Invalid email" })
+      );
+    } else if (typeof name !== "string") {
+      throw new Error(JSON.stringify({ status: 400, message: "Invalid name" }));
+    }
+    let result = await send_otp({ email, name }, "pswd");
+    if (result.result) {
+      res.status(200).json({ result: true, message: "Resend is successfull" });
+    } else {
+      res
+        .status(result.status)
+        .json({ result: result.result, message: result.message });
+    }
+  } catch (error) {
+    const err = JSON.parse(error.message);
+    return res.status(err.status).json({
+      result: false,
+      message: err.message,
+    });
+  }
+};
+function isOTPValid(userInput) {
+  // Check if the input is a number
+  if (!/^\d+$/.test(userInput)) {
+    return false;
+  }
+
+  // Check if the length is exactly 6 digits
+  if (userInput.length !== 6) {
+    return false;
+  }
+
+  return true;
+}
+exports.client_verify_email_otp = async (req, res) => {
+  try {
+    const user = req.user;
+    const { code } = req.body;
+    if (!isOTPValid(code)) {
+      throw new Error(
+        JSON.stringify({ status: 400, message: "Please enter a valid otp" })
+      );
+    }
+    if (!user) {
+      throw new Error(
+        JSON.stringify({ status: 400, message: "Invalid request" })
+      );
+    }
+    const isotp = await Otp.findOne({ email: user.email, type: "verify" })
+      .then((res) => res)
+      .catch((err) => {
+        throw new Error(
+          JSON.stringify({ status: 500, message: "Some Error occured" })
+        );
+      });
+    if (!isotp) {
+      throw new Error(
+        JSON.stringify({ status: 400, message: "Invalid request" })
+      );
+    } else if (isotp.code != code) {
+      throw new Error(
+        JSON.stringify({ status: 400, message: "Please enter a valid otp" })
+      );
+    } else if (new Date(isotp.validity) < Date.now()) {
+      throw new Error(JSON.stringify({ status: 400, message: "OTP expired" }));
+    }
+    const update = await users
+      .updateOne(
+        { email: user.email },
+        {
+          isverified: true,
+          verification: {
+            email: true,
+          },
+        }
+      )
+      .then((res) => res)
+      .catch((err) => {
+        throw new Error(
+          JSON.stringify({ status: 500, message: "Some Error occured" })
+        );
+      });
+    const delotp = await Otp.deleteMany({ email: user.email, type: "verify" })
+      .then((res) => res)
+      .catch((err) => {});
+    res.status(200).json({ result: true, message: "Email verified" });
   } catch (error) {
     const err = JSON.parse(error.message);
     return res.status(err.status).json({

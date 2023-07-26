@@ -40,7 +40,7 @@ const signup = async () => {
   const data = await response.json();
   alert(data.message);
   if (data.result) {
-    window.location.replace("/login");
+    window.location.replace("/verify/email");
   }
   bt.addEventListener("click", signup);
 };

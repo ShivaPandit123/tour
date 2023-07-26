@@ -7,6 +7,9 @@ const {
   admin_addtour,
   client_oauth,
   client_inquiry,
+  client_veremail,
+  client_resetotp,
+  client_verify_email_otp,
 } = require("../contoroller/controller");
 const router = express.Router();
 const verify = require("../Middleware/auth");
@@ -43,4 +46,11 @@ router.post("/contact", verify, client_contact);
 router.post("/addproduct", verify, admin_addtour);
 
 router.post("/tours/:any/inquiry", verify, client_inquiry);
+
+router.get("/resend/email/verification", verify, client_veremail);
+
+router.post("/resend/password/reset", client_resetotp);
+
+router.post("/email/validate", verify, client_verify_email_otp);
+
 module.exports = router;

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Your vacation, tours and travel theme needs are all met at emprise." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tour Travel Website Template | Emprise</title>
+  <!-- Favicon -->
+  {{>chead}}
+</head>
+
+<body class="rlr-body">
+  <!-- Header -->
+  {{>header}}
+  <!-- Main Content -->
+  <main id="rlr-main" class="rlr-main--fixed-top">
+    <div class="rlr-section__content--lg-top">
+      <section class="rlr-section rlr-section__mt rlr-account">
+        <div class="container">
+          <div id="alert">
+            <div class="alert alert-success" style="text-align: center;"  >
+            {{message}}
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 offset-lg-4">
+              <div class="rlr-authforms">
+                <div class="rlr-authforms__header">
+                  <img src="/assets/logo.png" alt="Logo" />
+                  <h2>Check your email</h2>
+                  <p>We sent a otp to {{email}}</p>
+                  <p>Sometimes, it might be in the spam folder.</p>
+                </div>
+                <div class="rlr-authforms__inputgroup"><label class="rlr-form-label rlr-form-label--light required"> OTP
+                  </label> <input type="text" autocomplete="off" class="form-control form-control--light" id="otp"
+                    placeholder="Please enter otp" /></div>
+                <div class="rlr-authforms__notes" id="rsnd_cont">
+                  <p><a href="#">Resend OTP in 60 sec ?</a></p>
+                </div>
+                <div class="rlr-authforms__form">
+                  <button type="button" class="btn mb-3 rlr-button rlr-button--fullwidth rlr-button--primary"
+                    id="submit_otp">Verify</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <!-- Footer -->
+  {{>footer}}
+  <!-- Scripts -->
+  <script src="/vendors/navx/js/navigation.min.js" defer></script>
+  <script src="/js/scripts/verify.js"></script>
+  <script src="/js/main.js" defer></script>
+</body>
+
+</html>

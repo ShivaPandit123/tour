@@ -4,6 +4,7 @@ const tours = require("../models/tours");
 const verify = require("../Middleware/auth");
 const querystring = require("querystring");
 const Booking = require("../models/booking");
+const { send_otp } = require("../contoroller/email");
 
 function getGoogleAuthURL() {
   const rootUrl = "https://accounts.google.com/o/oauth2/v2/auth";
@@ -89,6 +90,35 @@ routers.get("/", verify, async (req, res) => {
         login: false,
       });
     }
+  }
+});
+
+routers.get("/verify/email", verify, async (req, res) => {
+  try {
+    let user = req.user;
+    if (!user) {
+      res.redirect("/");
+    } else if (user.isverified && user.verification.email) {
+      res.redirect("/");
+    }
+    const otp = await send_otp(
+      { email: user.email, name: user.name },
+      "verify"
+    );
+    res.status(otp.status ? otp.status : 200).render("verifyemail", {
+      name:
+        req.user.name.length > 12
+          ? req.user.name.slice(0, 10) + ".."
+          : req.user.name,
+      logind: false,
+      login: true,
+      listing: req.user.type === "admin" ? true : false,
+      email: user.email,
+      message: otp.message ? otp.message : "OTP sent successfully",
+      view: otp.result,
+    });
+  } catch (error) {
+    console.log(error);
   }
 });
 

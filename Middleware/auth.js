@@ -29,6 +29,19 @@ const verify = async (req, res, next) => {
           JSON.stringify({ status: 403, message: "user not found" })
         );
       });
+    if (isuser) {
+      if (!isuser.isverified && !isuser.verification.email) {
+        const path = req.route.path;
+        if (
+          path !== "/verify/email" &&
+          path !== "/logout" &&
+          path !== "/email/validate" &&
+          path !== "/resend/email/verification"
+        ) {
+          return res.redirect("/verify/email");
+        }
+      }
+    }
     req.token = token;
     req.user = isuser;
     req.body = body;
