@@ -182,6 +182,7 @@ routers.get("/orders", verify, async (req, res) => {
           req.user.name.length > 12
             ? req.user.name.slice(0, 10) + ".."
             : req.user.name,
+        namee: req.user.name,
         logind: false,
         login: true,
         orders: true,
