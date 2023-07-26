@@ -307,6 +307,7 @@ routers.get("/tours/:any", verify, async (req, res) => {
           login: true,
           listing: req.user.type === "admin" ? true : false,
           tours: istour,
+          number: pageNumber,
         });
       } else {
         res.render("tours", {
@@ -314,6 +315,7 @@ routers.get("/tours/:any", verify, async (req, res) => {
           logind: true,
           login: false,
           tours: istour,
+          number: pageNumber,
         });
       }
     } else {
@@ -374,6 +376,7 @@ routers.get("/tours", verify, async (req, res) => {
         login: true,
         listing: req.user.type === "admin" ? true : false,
         tours: istour,
+        number: 1,
       });
     } else {
       res.render("tours", {
@@ -381,6 +384,7 @@ routers.get("/tours", verify, async (req, res) => {
         logind: true,
         login: false,
         tours: istour,
+        number: 1,
       });
     }
   } catch (error) {
