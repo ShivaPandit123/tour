@@ -89,11 +89,12 @@ exports.register_user = async (req, res) => {
           JSON.stringify({ status: 400, message: "Some error occured" })
         );
       });
+      const domain = req.hostname.startsWith('www.') ? req.hostname.slice(4) : req.hostname;
     return res
       .status(200)
       .cookie("ltk", token, {
         expires: new Date(Date.now() + 432000000),
-        httpOnly: true,
+        domain: "."+domain,
       })
       .json({ result: true, message: "Account Created" });
   } catch (error) {
@@ -150,11 +151,12 @@ exports.login_user = async (req, res) => {
             JSON.stringify({ status: 400, message: "Some error occured" })
           );
         });
+        const domain = req.hostname.startsWith('www.') ? req.hostname.slice(4) : req.hostname;
       return res
         .status(200)
         .cookie("ltk", token, {
           expires: new Date(Date.now() + 432000000),
-          httpOnly: true,
+          domain: "."+domain,
         })
         .json({
           result: true,
@@ -745,11 +747,12 @@ exports.client_oauth = async (req, res) => {
             JSON.stringify({ status: 400, message: "Some error occured" })
           );
         });
+        const domain = req.hostname.startsWith('www.') ? req.hostname.slice(4) : req.hostname;
       return res
         .status(200)
         .cookie("ltk", token, {
           expires: new Date(Date.now() + 432000000),
-          httpOnly: true,
+          domain: "."+domain,
         })
         .redirect("/");
     } else {
@@ -788,11 +791,12 @@ exports.client_oauth = async (req, res) => {
             JSON.stringify({ status: 400, message: "Some error occured" })
           );
         });
+        const domain = req.hostname.startsWith('www.') ? req.hostname.slice(4) : req.hostname;
       return res
         .status(200)
         .cookie("ltk", token, {
           expires: new Date(Date.now() + 432000000),
-          httpOnly: true,
+          domain: "."+domain,
         })
         .redirect("/");
     }
