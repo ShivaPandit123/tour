@@ -203,13 +203,13 @@
                 {{#each iti}}
                 <div class="accordion-item rlr-accordion__item">
                   <div class="accordion-header rlr-accordion__header" id="rlr-itinerary-header{{this.count}}">
-                    <button class="accordion-button rlr-accordion__button" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#rlr-itinerary-collapse{{this.count}}" aria-expanded="true"
+                    <button class="accordion-button rlr-accordion__button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#rlr-itinerary-collapse{{this.count}}" aria-expanded="false"
                       aria-controls="rlr-itinerary-collapse{{this.count}}">
-                      <span class="rlr-accordion__badge">{{this.count}}</span> Day {{this.count}}
+                      <span class="rlr-accordion__badge">{{this.count}}</span> {{this.title}}
                     </button>
                   </div>
-                  <div id="rlr-itinerary-collapse{{this.count}}" class="accordion-collapse collapse show"
+                  <div id="rlr-itinerary-collapse{{this.count}}" class="accordion-collapse collapse"
                     aria-labelledby="rlr-itinerary-header{{this.count}}">
                     <div class="accordion-body rlr-accordion__body">
                        <div>
@@ -282,12 +282,12 @@
                 {{#each tour.faq}}
                 <div class="accordion-item rlr-accordion__item">
                   <div class="accordion-header rlr-accordion__header" id="rlr-faq-collapse-header{{this.id}}">
-                    <button class="accordion-button rlr-accordion__button" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#rlr-faq-collapse{{this.id}}" aria-expanded="true" aria-controls="rlr-faq-collapse1">
+                    <button class="accordion-button rlr-accordion__button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#rlr-faq-collapse{{this.id}}" aria-expanded="false" aria-controls="rlr-faq-collapse1">
                       <span class="rlr-accordion__badge">?</span> {{this.title}}
                     </button>
                   </div>
-                  <div id="rlr-faq-collapse{{this.id}}" class="accordion-collapse collapse show"
+                  <div id="rlr-faq-collapse{{this.id}}" class="accordion-collapse collapse"
                     aria-labelledby="rlr-faq-collapse-header{{this.id}}">
                     <div class="accordion-body rlr-accordion__body">
                        <div>
