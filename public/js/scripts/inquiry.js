@@ -39,7 +39,7 @@ ${addon.map((itm) => {
     ? `<li class="cart-item-card__item">
   <div class="cart-item-card__iconcontainer">
     <span>
-      <i class="rlr-icon-font flaticon-carbon-user"></i>
+    +
     </span>
   </div>
   <div class="cart-item-card__item-title">
