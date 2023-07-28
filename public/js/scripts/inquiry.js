@@ -49,7 +49,7 @@ ${addon.map((itm) => {
   </div>
   </li>`
     : "";
-})}
+}).join('')}
 </ul>`;
 
 var form = document.getElementById("inqu_form");
