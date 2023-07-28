@@ -43,7 +43,7 @@
               <ul id="image-preview" class="splide__list">
                 {{#each tour.images}}
                 <li class="splide__slide rlr-media__image-view">
-                  <img class="lazyload" data-src="/assets/tours/{{../tour.id}}/{{this.url}}" alt="media image" />
+                  <img loading="lazy" class="lazyload" data-src="/assets/tours/{{../tour.id}}/{{this.url}}" alt="media image" />
                 </li>
                 {{/each}}
               </ul>
@@ -83,7 +83,7 @@
               <ul id="image-preview-thumb" class="splide__list">
                 {{#each tour.images}}
                 <li class="splide__slide rlr-media__image-view">
-                  <img class="rlr-media__thumb lazyload" data-src="/assets/tours/{{../tour.id}}/{{this.url}}"
+                  <img loading="lazy" class="rlr-media__thumb lazyload" data-src="/assets/tours/{{../tour.id}}/{{this.url}}"
                     alt="media image" />
                 </li>
                 {{/each}}

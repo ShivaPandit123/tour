@@ -37,7 +37,7 @@
                         {{#with this}}
                         {{#each this._doc.images}}
                         <div class="swiper-slide">
-                          <img itemprop="image" data-sizes="auto" src="/assets/tours/{{../this._doc.id}}/{{this.url}}"
+                          <img loading="lazy" itemprop="image" data-sizes="auto" src="/assets/tours/{{../this._doc.id}}/{{this.url}}"
                             class="lazyload" alt="product-image" />
                         </div>
                         {{/each}}
