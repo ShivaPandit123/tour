@@ -1,76 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {{>chead}}
-    <meta charset="UTF-8" />
-    <meta name="description" content="Manage your Vrindavan-Mathura Tour Package orders, payments, and more." />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{namee}} | Orders</title>
-    <meta name="robots" content="noindex">
-    <meta name="keywords" content="vrindavan mathura tour package, order page, order, view, manage, orders">
-  </head>
 
-  <body class="rlr-body">
-    <!-- Header -->
-    {{>header}}
-    <!-- Main Content -->
-    <main id="rlr-main" class="rlr-main--fixed-top">
-      <div class="rlr-section__content--md-top">
-        <div class="rlr-section rlr-section__my">
-          {{>ms}}
-          <div class="container">
-            <div class="row">
-              {{>aside}}
-              <div class="content col-lg-9 col-xs-12">
-                <div class="rlr-data-container woocommerce-MyAccount-content">
-                  <h1 class="type-h3 rlr-data-table__title">Your Orders</h1>
-                  <div class="table">
-                    <table class="rlr-data-table woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
-                      <thead class="rlr-data-table__header">
-                        <tr class="rlr-data-table__header-row">
-                          <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-number">
-                            <span class="nobr"> Booking id </span>
-                          </th>
-                          <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-date">
-                            <span class="nobr"> Date </span>
-                          </th>
-                          <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-status">
-                            <span class="nobr"> Status </span>
-                          </th>
-                          <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-actions">
-                            <span class="nobr"> Actions </span>
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {{#each booking}}
-                        <tr class="rlr-data-table__row woocommerce-orders-table__row woocommerce-orders-table__row--status-on-hold order">
-                          <td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-number" data-title="Order">
-                            <a href="/product-detail-page.html"> {{this.id}} </a>
-                          </td>
-                          <td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-date" data-title="Date">
-                            <time datetime="2022-04-20T08:01:42+00:00"> {{this.expdate}} </time>
-                          </td>
-                          <td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-status" data-title="Status">{{this.status}}</td>
-                          <td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-actions" data-title="Actions">
-                            <a href="/tours/details/{{this.tour.url}}" class="rlr-data-table__link woocommerce-button button view"> View </a>
-                          </td>
-                        </tr>
-                        {{/each}}
-                      </tbody>
-                    </table>
-                  </div>
+<head>
+  {{>chead}}
+  <meta charset="UTF-8" />
+  <meta name="description" content="Manage your Vrindavan-Mathura Tour Package orders, payments, and more." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{namee}} | Orders</title>
+  <meta name="robots" content="noindex">
+  <meta name="keywords" content="vrindavan mathura tour package, order page, order, view, manage, orders">
+</head>
+
+<body class="rlr-body">
+  <!-- Header -->
+  {{>header}}
+  <!-- Main Content -->
+  <main id="rlr-main" class="rlr-main--fixed-top">
+    <div class="rlr-section__content--md-top">
+      <div class="rlr-section rlr-section__my">
+        {{>ms}}
+        <div class="container">
+          <div class="row">
+            {{>aside}}
+            <div class="content col-lg-9 col-xs-12">
+              <div class="rlr-data-container woocommerce-MyAccount-content">
+                <h1 class="type-h3 rlr-data-table__title">
+                  {{#if listing}}
+                  Inquiry's
+                  {{else}}
+                  Your Orders
+                  {{/if}}</h1>
+                <div class="table">
+                  <table
+                    class="rlr-data-table woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
+                    <thead class="rlr-data-table__header">
+                      <tr class="rlr-data-table__header-row">
+                        <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-number">
+                          <span class="nobr"> Booking id </span>
+                        </th>
+                        <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-date">
+                          <span class="nobr"> Date </span>
+                        </th>
+                        <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-status">
+                          <span class="nobr"> Status </span>
+                        </th>
+                        <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-actions">
+                          <span class="nobr"> Actions </span>
+                        </th>
+                        <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-actions">
+                          <span class="nobr"> Phone </span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each booking}}
+                      <tr
+                        class="rlr-data-table__row woocommerce-orders-table__row woocommerce-orders-table__row--status-on-hold order">
+                        <td
+                          class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-number"
+                          data-title="Order">
+                          <a href="/product-detail-page.html"> {{this.id}} </a>
+                        </td>
+                        <td
+                          class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-date"
+                          data-title="Date">
+                          <time datetime="2022-04-20T08:01:42+00:00"> {{this.expdate}} </time>
+                        </td>
+                        <td
+                          class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-status"
+                          data-title="Status">{{this.status}}</td>
+                        <td
+                          class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-actions"
+                          data-title="Actions">
+                          <a href="/tours/details/{{this.tour.url}}"
+                            class="rlr-data-table__link woocommerce-button button view"> View </a>
+                        </td>
+                        <td
+                          class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-actions"
+                          data-title="Actions">
+                          <a href="tel:+91 {{this.phone}}"
+                            class="rlr-data-table__link woocommerce-button button view">{{this.phone}}</a>
+                        </td>
+                      </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </main>
-    <!-- Footer -->
-    {{>footer}}
-    <!-- Scripts -->
-    <script src="/vendors/navx/js/navigation.min.js" defer></script>
-    <script src="/js/main.js" defer></script>
-  </body>
+    </div>
+  </main>
+  <!-- Footer -->
+  {{>footer}}
+  <!-- Scripts -->
+  <script src="/vendors/navx/js/navigation.min.js" defer></script>
+  <script src="/js/main.js" defer></script>
+</body>
+
 </html>

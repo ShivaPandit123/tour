@@ -168,7 +168,9 @@ routers.get("/orders", verify, async (req, res) => {
   try {
     if (req.user) {
       let regex = new RegExp(["^", req.user.email, "$"].join(""), "i");
-      const inquiry = await Booking.find({ email: regex })
+      const inquiry = await Booking.find(
+        req.user.type === "admin" ? {} : { email: regex }
+      )
         .then((res) => {
           return res;
         })
