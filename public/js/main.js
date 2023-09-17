@@ -19048,15 +19048,15 @@
     })();
 })();
 //# sourceMappingURL=main.js.map
-const op = document.getElementById("toggle");
-op.addEventListener("click", () => {
-  document.body.style.overflow = "hidden";
-});
+// const op = document.getElementById("toggle");
+// op.addEventListener("click", () => {
+//   document.body.style.overflow = "hidden";
+// });
 
-const cl = document.getElementById("closebtn");
-cl.addEventListener("click", () => {
-  document.body.style.overflow = "scroll";
-});
+// const cl = document.getElementById("closebtn");
+// cl.addEventListener("click", () => {
+//   document.body.style.overflow = "scroll";
+// });
 
 let logout = document.getElementById("logoutt");
 let logot = document.getElementById("logot");
