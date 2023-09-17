@@ -14380,8 +14380,8 @@ span.select2-selection__rendered {
   bottom: 5%;
   right: 5%;
   z-index: 10;
-  height: 50px;
-  width: 50px;
+  height: 65px;
+  width: 65px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -14390,6 +14390,7 @@ span.select2-selection__rendered {
   background-color: #71f271;
   color: white;
   animation: rotateCircle 1s linear infinite;
+  font-size: 30px;
 }
 .floater_call:hover{
   color: white;
@@ -14419,5 +14420,10 @@ span.select2-selection__rendered {
   }
   100% {
       transform: rotate(0deg);
+  }
+}
+@media (min-width: 1024px) {
+  .floater_call {
+    display: none;
   }
 }
